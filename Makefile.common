@@ -33,7 +33,13 @@ endif
 
 # Create quad-fat binaries on Mac OS
 ifeq ($(OS),macosx)
-	ARCH_CFLAGS=-arch i386 -arch x86_64
+	ifeq ($(ARCH),x86)
+		ARCH_CFLAGS=-arch i386
+	endif
+
+	ifeq ($(ARCH),x86_64)
+		ARCH_CFLAGS=-arch x86_64
+	endif
 
 	ifeq ($(ARCH),ppc)
 		ARCH_CFLAGS+=-arch ppc
