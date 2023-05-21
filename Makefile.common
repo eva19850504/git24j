@@ -48,6 +48,10 @@ ifeq ($(OS),macosx)
 	ifeq ($(ARCH),ppc64)
 		ARCH_CFLAGS+=-arch ppc -arch ppc64
 	endif
+
+	ifeq ($(ARCH),arm64)
+		ARCH_CFLAGS+=-arch arm64
+	endif
 endif
 
 ifeq "$(wildcard $(JAVA_HOME) )" ""
