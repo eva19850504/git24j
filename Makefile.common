@@ -33,25 +33,27 @@ endif
 
 # Create quad-fat binaries on Mac OS
 ifeq ($(OS),macosx)
-	ifeq ($(ARCH),x86)
-		ARCH_CFLAGS=-arch i386
-	endif
+    ARCH_CFLAGS= 
 
-	ifeq ($(ARCH),x86_64)
-		ARCH_CFLAGS=-arch x86_64
-	endif
+    ifeq ($(ARCH),x86)
+        ARCH_CFLAGS+=-arch i386
+    endif
 
-	ifeq ($(ARCH),ppc)
-		ARCH_CFLAGS+=-arch ppc
-	endif
+    ifeq ($(ARCH),x86_64)
+        ARCH_CFLAGS+=-arch x86_64
+    endif
 
-	ifeq ($(ARCH),ppc64)
-		ARCH_CFLAGS+=-arch ppc -arch ppc64
-	endif
+    ifeq ($(ARCH),ppc)
+        ARCH_CFLAGS+=-arch ppc
+    endif
 
-	ifeq ($(ARCH),arm64)
-		ARCH_CFLAGS+=-arch arm64
-	endif
+    ifeq ($(ARCH),ppc64)
+        ARCH_CFLAGS+=-arch ppc64
+    endif
+
+    ifeq ($(ARCH),arm64)
+        ARCH_CFLAGS+=-arch arm64
+    endif
 endif
 
 ifeq "$(wildcard $(JAVA_HOME) )" ""
